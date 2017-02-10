@@ -57,7 +57,10 @@ class Pokemon:
 		self.stats["spdefense"] = CalculateStat(self.ivs["spdefense"], self.lvl, self.evs["spdefense"], self.mon_type.baseStats["spdefense"])
 		self.stats["speed"] = CalculateStat(self.ivs["speed"], self.lvl, self.evs["speed"], self.mon_type.baseStats["speed"])
 		self.expToNextLvl = CalculateTotalExpAtLvl(self.mon_type.expGroup, self.lvl + 1) - CalculateTotalExpAtLvl(self.mon_type.expGroup, self.lvl)
-
+	
+	def RareCandyLevelUp(self):
+		self.GiveExp(self.expToNextLvl - self.currentExp)
+	
 	def LevelUp(self):
 		self.currentExp += -self.expToNextLvl
 		self.lvl += 1
@@ -121,6 +124,5 @@ def CalculateTotalExpAtLvl(group, level):
 
 #Implement Erratic Exp Group formula
 #Implement Fluctuating Exp Group formula
-#Implement Rare Candy
 #Implement Natures
 #Implement basic evolution
