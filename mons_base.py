@@ -110,19 +110,28 @@ def CalculateStatHP(iv, level, ev, base):
 
 def CalculateTotalExpAtLvl(group, level):
 	if group == "Fast":
+		#Needs testing
 		return math.floor((4*pow(level, 3))/5)
 	elif group == "Medium Fast":
 		return math.floor(math.pow(level, 3))
 	elif group == "Medium Slow":
-		return math.floor((6/5)*pow(level, 3) - 15*pow(level, 2) + 100*level - 140)
+		#Needs testing
+		return math.floor(((6/5)*math.pow(level, 3)) - (15*math.pow(level, 2)) + (100 * level) - 140)
 	elif group == "Slow":
-		return math.floor((5*pow(level, 3))/4)
+		#Needs testing
+		return math.floor((5*math.pow(level, 3))/4)
 	elif group == "Erratic":
-		pass
+		#Needs testing
+		if level <= 50:
+			return (math.pow(level, 3)*(100 - level)) / 50
+		elif level <= 68:
+			return (math.pow(level, 3) * (100 - n)) / 100
+		elif level <= 98:
+			return (math.pow(level, 3) * math.floor((1911 - (10 * level) / 3))) / 500
+		else:
+			return (math.pow(level, 3) * (160 - level)) / 100
 	elif group == "Fluctuating":
-		pass
+		return
 
-#Implement Erratic Exp Group formula
-#Implement Fluctuating Exp Group formula
 #Implement Natures
 #Implement basic evolution
