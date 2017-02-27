@@ -103,23 +103,23 @@ class Pokemon:
 		print("speed " + str(self.evs["speed"]))
 
 def CalculateStat(iv, level, ev, base):
-	return math.floor((((2*base + iv + math.floor(ev/4))*level)/100) + 5)
+	return math.floor((((2 * base + iv + math.floor(ev / 4)) * level) / 100) + 5)
 
 def CalculateStatHP(iv, level, ev, base):
-	return math.floor((((2*base + iv + math.floor(ev/4))*level)/100) + level + 10)
+	return math.floor((((2 * base + iv + math.floor(ev / 4)) * level) / 100) + level + 10)
 
 def CalculateTotalExpAtLvl(group, level):
 	if group == "Fast":
 		#Needs testing
-		return math.floor((4*pow(level, 3))/5)
+		return math.floor((4 * pow(level, 3)) / 5)
 	elif group == "Medium Fast":
 		return math.floor(math.pow(level, 3))
 	elif group == "Medium Slow":
 		#Needs testing
-		return math.floor(((6/5)*math.pow(level, 3)) - (15*math.pow(level, 2)) + (100 * level) - 140)
+		return math.floor(((6 / 5) * math.pow(level, 3)) - (15 * math.pow(level, 2)) + (100 * level) - 140)
 	elif group == "Slow":
 		#Needs testing
-		return math.floor((5*math.pow(level, 3))/4)
+		return math.floor((5 * math.pow(level, 3)) / 4)
 	elif group == "Erratic":
 		#Needs testing
 		if level <= 50:
@@ -131,7 +131,13 @@ def CalculateTotalExpAtLvl(group, level):
 		else:
 			return (math.pow(level, 3) * (160 - level)) / 100
 	elif group == "Fluctuating":
-		return
+		#Needs testing
+		if level <= 15:
+			return math.pow(level, 3) * ((math.floor((level + 1) / 3) + 24) / 50)
+		elif level <= 36:
+			return math.pow(level, 3) * ((level + 14) / 50)
+		else:
+			return math.pow(level, 3) * ((math.floor(level / 2) + 32) / 50)
 
 #Implement Natures
 #Implement basic evolution
